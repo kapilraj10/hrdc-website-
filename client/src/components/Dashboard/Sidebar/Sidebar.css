@@ -1,0 +1,175 @@
+/* Sidebar Container */
+.sidebar {
+  width: 100%;
+  height: 100vh;
+  background: #ffffff;
+  /* White background */
+  color: #0f172a;
+  /* Dark text for contrast */
+  display: flex;
+  flex-direction: column;
+  transition: width 0.25s ease;
+  padding: 12px;
+  font-family: Inter, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
+  border-right: 1px solid #e6e9ef;
+  box-shadow: 2px 0 12px rgba(0, 0, 0, 0.08);
+  overflow-y: auto;
+  /* Keep content scrollable */
+  scrollbar-width: none;
+  /* Firefox: hide scrollbar */
+  -ms-overflow-style: none;
+  /* IE/Edge: hide scrollbar */
+  -webkit-overflow-scrolling: touch;
+}
+
+.sidebar::-webkit-scrollbar {
+  width: 0;
+  height: 0;
+}
+
+/* Sidebar Top (Brand + Collapse Button) */
+.sidebar-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-bottom: 10px;
+}
+
+.brand-logo {
+  width: 40px;
+  height: 40px;
+  border-radius: 8px;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, #eef2ff, #fff);
+}
+
+.brand-texts {
+  margin-left: 10px;
+}
+
+.brand-title {
+  font-weight: 700;
+  font-size: 1rem;
+  color: #0f172a;
+}
+
+.brand-sub {
+  font-size: 0.75rem;
+  color: #475569;
+}
+
+.collapse-btn {
+  background: transparent;
+  border: 1px solid #e6e9ef;
+  color: #0f172a;
+  cursor: pointer;
+  font-size: 0.9rem;
+  padding: 6px 10px;
+  border-radius: 8px;
+}
+
+/* Menu List */
+.menu-list {
+  list-style: none;
+  margin: 0;
+  padding: 8px 0;
+}
+
+.menu-item {
+  margin: 6px 0;
+}
+
+.menu-item.active .menu-link {
+  background: #f0f4ff;
+  border-left: 4px solid #3b82f6;
+}
+
+.menu-link {
+  display: flex;
+  align-items: center;
+  padding: 10px 12px;
+  color: #0f172a;
+  text-decoration: none;
+  border-radius: 8px;
+  transition: background 0.2s ease;
+  background: transparent;
+  border: none;
+  width: 100%;
+  text-align: left;
+  cursor: pointer;
+}
+
+.menu-link:hover {
+  background: #f3f4f6;
+}
+
+.menu-link:focus {
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.12);
+}
+
+/* Menu Icons & Labels */
+.menu-icon {
+  width: 34px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.2rem;
+  color: #0f172a;
+}
+
+.menu-label {
+  margin-left: 10px;
+  font-size: 0.95rem;
+  font-weight: 500;
+}
+
+/* Badges */
+.menu-badge {
+  background: #10b981;
+  color: #fff;
+  padding: 2px 6px;
+  border-radius: 12px;
+  font-size: 0.7rem;
+  margin-left: auto;
+  font-weight: 600;
+}
+
+.badge-new {
+  background: #ef4444 !important;
+}
+
+/* Collapsed Sidebar - visual collapse only (container controls width) */
+.sidebar.collapsed {
+  /* visual-only collapse state: we keep this block for clarity */
+}
+
+.sidebar.collapsed .brand-texts,
+.sidebar.collapsed .menu-label,
+.sidebar.collapsed .menu-badge {
+  display: none;
+}
+
+.sidebar.collapsed .menu-link {
+  justify-content: center;
+}
+
+/* Responsive for smaller screens */
+@media (max-width: 992px) {
+  .sidebar {
+    width: 70px;
+  }
+
+  .sidebar .brand-texts,
+  .sidebar .menu-label,
+  .sidebar .menu-badge {
+    display: none;
+  }
+
+  .sidebar .menu-link {
+    justify-content: center;
+  }
+}

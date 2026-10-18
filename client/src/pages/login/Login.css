@@ -1,0 +1,16 @@
+/* Login page specific styles */
+.login-card {
+    width: 100%;
+    max-width: 420px;
+    border-radius: 12px;
+}
+
+.login-page-bg {
+    background: linear-gradient(180deg, #f8fafc 0%, #ffffff 100%);
+}
+
+@media (max-width: 480px) {
+    .login-card {
+        margin: 0 16px;
+    }
+}

@@ -1,0 +1,155 @@
+/* Dashboard Layout */
+.dashboard-layout {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Navbar - Fixed at top */
+.navbar-container {
+  width: 100%;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Main container for sidebar + content */
+.main-container {
+  display: flex;
+  flex: 1;
+  overflow: hidden;
+}
+
+/* Sidebar - Fixed left */
+.sidebar-container {
+  width: 250px;
+  background-color: #f8f9fa;
+  border-right: 1px solid #dee2e6;
+  min-height: calc(100vh - 60px);
+  position: fixed;
+  left: 0;
+  top: 60px;
+  /* Adjust based on navbar height */
+  bottom: 0;
+  overflow-y: auto;
+  transition: width 0.3s ease;
+}
+
+/* When the body has .sidebar-collapsed (toggled by Sidebar), shrink the fixed container */
+body.sidebar-collapsed .sidebar-container {
+  width: 70px;
+}
+
+body.sidebar-collapsed .content-container {
+  margin-left: 70px;
+}
+
+/* Hide native scrollbar for sidebar-container while keeping it scrollable */
+.sidebar-container {
+  /* Firefox */
+  scrollbar-width: none;
+  /* IE 10+ */
+  -ms-overflow-style: none;
+}
+
+.sidebar-container::-webkit-scrollbar {
+  width: 0;
+  height: 0;
+}
+
+/* Content area */
+.content-container {
+  flex: 1;
+  margin-left: 250px;
+  /* Same as sidebar width */
+  padding: 20px;
+  min-height: calc(100vh - 60px);
+  background-color: #ffffff;
+  overflow-y: auto;
+}
+
+/* Dashboard content styling */
+.content {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.dashboard-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 20px;
+  margin-top: 30px;
+}
+
+.dashboard-card {
+  background: #fff;
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+  padding: 20px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+  transition: transform 0.2s ease;
+}
+
+.dashboard-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.dashboard-card h4 {
+  color: #333;
+  margin-bottom: 10px;
+}
+
+.dashboard-card p {
+  color: #666;
+  margin: 0;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .sidebar-container {
+    width: 70px;
+  }
+
+  .content-container {
+    margin-left: 70px;
+  }
+
+  .dashboard-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 576px) {
+  .sidebar-container {
+    display: none;
+    /* Hide sidebar on mobile */
+  }
+
+  .content-container {
+    margin-left: 0;
+  }
+
+  .content {
+    padding: 10px;
+  }
+}
+
+/* Scrollbar styling */
+.content-container::-webkit-scrollbar {
+  width: 6px;
+}
+
+.content-container::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+.content-container::-webkit-scrollbar-thumb {
+  background: #888;
+  border-radius: 3px;
+}
+
+.content-container::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
